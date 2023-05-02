@@ -1,0 +1,41 @@
+{
+	"name": "ameliance-scripts",
+	"version": "0.2.0",
+	"description": "scripts",
+	"main": "index.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AmelianceSkyMusic/asm-ts-scripts.git"
+	},
+	"keywords": [
+		"scripts",
+		"typescript",
+		"helpers",
+		"collection",
+		"react",
+		"combine-classes",
+		"sort-array",
+		"get-random-color",
+		"combine-list-to-sorted-array",
+		"create-html-elem",
+		"get-random-hex-color",
+		"get-random-number",
+		"get-random-rgb-color",
+		"get-scroll-direction",
+		"is-object-empty",
+		"join-classes",
+		"shuffle-array",
+		"sort-array-of-obj",
+		"sort-string-array-local-compare",
+		"string-cut"
+	],
+	"author": "Ameliance SkyMusic <AmelianceSkyMusic@gmail.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AmelianceSkyMusic/ameliance-scripts/issues"
+	},
+	"homepage": "https://github.com/AmelianceSkyMusic/ameliance-scripts#readme"
+}
