@@ -279,6 +279,9 @@ a.setLocalStorage(APP_NAME, 'user', 'displayName', 'Ameliance SkyMusic');
 
 ## History
 ```
+0.2.1 [2023_05_02]:
+   *: update naming
+
 0.2.0 [2023_05_02]:
    ^: rename and move library to https://www.npmjs.com/package/ameliance-scripts
 
