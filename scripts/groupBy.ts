@@ -17,7 +17,7 @@ export function groupBy<T, K extends string | number>(
 ): [string, T[]][] {
 	const arrayFirstItem = array[0];
 
-	if (typeof arrayFirstItem !== 'string' && !isObject(arrayFirstItem) && !Array.isArray(arrayFirstItem)) {
+	if (typeof arrayFirstItem !== 'string' && typeof arrayFirstItem !== 'number' && !isObject(arrayFirstItem) && !Array.isArray(arrayFirstItem)) {
 		throw new Error('Invalid value');
 	}
 

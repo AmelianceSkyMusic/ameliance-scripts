@@ -279,6 +279,12 @@ a.setLocalStorage(APP_NAME, 'user', 'displayName', 'Ameliance SkyMusic');
 
 ## History
 ```
+0.2.2 [2023_05_07]:
+   ^: add deep fourth param to returnError
+   #: fix work with numbers groupBy
+   #: fix work with numbers removeEmptyValues
+   #: fix work with numbers sortArrayLocalCompare
+
 0.2.1 [2023_05_02]:
    *: update naming
 

@@ -7,7 +7,7 @@ export function sortArrayLocalCompare<T, K extends string | number>(
 	const arrayCopy = array.slice();
 	const arrayFirstItem = arrayCopy[0];
 
-	if (typeof arrayFirstItem !== 'string' && !isObject(arrayFirstItem) && !Array.isArray(arrayFirstItem)) {
+	if (typeof arrayFirstItem !== 'string' && typeof arrayFirstItem !== 'number' && !isObject(arrayFirstItem) && !Array.isArray(arrayFirstItem)) {
 		throw new Error('Invalid value');
 	}
 
@@ -21,7 +21,7 @@ export function sortArrayLocalCompare<T, K extends string | number>(
 
 	let result: T[] = [];
 
-	if (typeof arrayFirstItem === 'string' || typeof arrayFirstItem === 'string') {
+	if (typeof arrayFirstItem === 'string' || typeof arrayFirstItem === 'number') {
 		result = arrayCopy.sort((a, b) => {
 			const aKey = String(a);
 			const bKey = String(b);

@@ -7,7 +7,7 @@ export function removeEmptyValues<T, K extends string | number>(
 	const arrayCopy = array.slice();
 	const arrayFirstItem = arrayCopy[0];
 
-	if (typeof arrayFirstItem !== 'string' && !isObject(arrayFirstItem) && !Array.isArray(arrayFirstItem)) {
+	if (typeof arrayFirstItem !== 'string' && typeof arrayFirstItem !== 'number' && !isObject(arrayFirstItem) && !Array.isArray(arrayFirstItem)) {
 		throw new Error('Invalid value');
 	}
 
