@@ -24,9 +24,6 @@ dist-ssr
 *.sw?
 
 #amelianceskymusic own modules
-*.-asm-*
--asm-*
-__-asm-*
 
 *._legacy*
 _legacy*

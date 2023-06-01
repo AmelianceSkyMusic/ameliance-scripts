@@ -82,6 +82,20 @@ a.getDifferentValues([1, 2, 3], [3, 4], [3, 5])
 a.getDifferentValues(['1', '2', '3', 1, 3], ['3', '4', 1], [1, '3', '5'])
 // ['1', '2', 3]
 ```
+
+```js
+a.getFormattedDate('2023-06-01');
+// June 1, 2023
+
+a.getFormattedDate('2023-06-01', 'short');
+// 6/1/23
+
+a.getFormattedDate('2023-06-01', 'full', 'uk-UA');
+// четвер, 1 червня 2023 р.
+
+a.getFormattedDate('2023-06-01', 'full', 'ja-JP');
+// 2023年6月1日木曜日
+```
 ```js
 a.getIndexesOfNonEmptyElements(['1', '', '3'])
 // [0, 2]
@@ -142,10 +156,28 @@ a.isObjectEmpty({ a: 'a' });
 // false
 ```
 ```js
+a.isObjectHasValue({ a: 'world', b: 'hello' }, 'react');
+// false
+
+a.isObjectHasValue({ a: 'world', b: 'hello' }, 'world');
+// true
+```
+```js
+a.isObjectValid('a');
+// false
+a.isObjectValid(null);
+// false
+a.isObjectValid({});
+// false
+a.isObjectValid({ a: 'a' });
+// true
+```
+```js
 const someVar = 'class-b'
 const someArr = [null, '', 'icon', '', '', undefined, '']
-a.join(['class-a', undefined, someVar, someVar, someArr.length > 0 && someArr]);
-// 'class-a class-b icon'
+const someObj = {'active-class-name': false, 'another-class': a === b}
+a.join(['class-a', undefined, someVar, someVar, someArr.length > 0 && someArr, someObj, path === curPath && 'active']);
+// 'class-a class-b icon another-class'
 ```
 ```js
 const someVar = 'class-b'
@@ -266,6 +298,13 @@ a.trimStartEmptyValues([
 // ]
 ```
 ```js
+const isActiveClass = a.useActiveClass('some-class another-class');
+
+function SomeComponent(){
+	return <Link className={isActiveClass(link.path === path)} />
+}
+```
+```js
 a.writeTextToClipboard('some text string');
 ```
 
@@ -279,6 +318,14 @@ a.setLocalStorage(APP_NAME, 'user', 'displayName', 'Ameliance SkyMusic');
 
 ## History
 ```
+0.2.3 [2023_06_01]:
+   *: extend join function
+   +: add getFormattedDate
+   +: add isObjectHasValue
+   +: add isObjectValid
+   +: add useActiveClass
+
+
 0.2.2 [2023_05_07]:
    ^: add deep fourth param to returnError
    #: fix work with numbers groupBy
