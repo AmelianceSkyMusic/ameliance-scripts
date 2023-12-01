@@ -17,11 +17,11 @@ export function createHTMLElem(
 		element$.setAttribute('id', params.id);
 	}
 	if (params?.attributes) {
-		params.attributes.forEach((atribut) => {
-			const atributName = atribut.split('=')[0];
-			const atributValue = (atribut.split('=')[1] || '').replaceAll('"', '');
+		params.attributes.forEach((attribute) => {
+			const attributeName = attribute.split('=')[0];
+			const attributeValue = (attribute.split('=')[1] || '').replaceAll('"', '');
 
-			element$.setAttribute(atributName, atributValue);
+			element$.setAttribute(attributeName, attributeValue);
 		});
 	}
 	if (text) {
