@@ -1,12 +1,15 @@
 import { isObject } from './isObject';
 
-function getGroupSymbol<T, K extends string | number>(item: T, key?: K): string {
+function getGroupSymbol<T, K extends string | number>(item: T, key?: K, length = 0): string {
+	if (length === 0 && typeof item === 'string') return item;
 	if (typeof item === 'string') return item[0];
 	if (isObject(item) && key) {
-		return String((item as Record<K, unknown>)[key])[0];
+		if (length === 0) return String((item as Record<K, unknown>)[key]);
+		return String((item as Record<K, unknown>)[key]).slice(0, length);
 	}
 	if (Array.isArray(item) && key && typeof key === 'number') {
-		return String((item as unknown[])[key])[0];
+		if (length === 0) return String((item as unknown[])[key]);
+		return String((item as unknown[])[key]).slice(0, length);
 	}
 	return '';
 }
@@ -14,10 +17,16 @@ function getGroupSymbol<T, K extends string | number>(item: T, key?: K): string 
 export function groupBy<T, K extends string | number>(
 	array: T[],
 	key?: K,
+	length = 0,
 ): [string, T[]][] {
 	const arrayFirstItem = array[0];
 
-	if (typeof arrayFirstItem !== 'string' && typeof arrayFirstItem !== 'number' && !isObject(arrayFirstItem) && !Array.isArray(arrayFirstItem)) {
+	if (
+		typeof arrayFirstItem !== 'string'
+		&& typeof arrayFirstItem !== 'number'
+		&& !isObject(arrayFirstItem)
+		&& !Array.isArray(arrayFirstItem)
+	) {
 		throw new Error('Invalid value');
 	}
 
@@ -32,7 +41,7 @@ export function groupBy<T, K extends string | number>(
 	const group = new Map();
 
 	array.forEach((arrayElement) => {
-		const groupKey = getGroupSymbol(arrayElement, key || undefined);
+		const groupKey = getGroupSymbol(arrayElement, key || undefined, length);
 		if (group.has(groupKey)) {
 			group.set(groupKey, [...group.get(groupKey), arrayElement]);
 		} else {
