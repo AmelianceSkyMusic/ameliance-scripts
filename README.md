@@ -482,14 +482,14 @@ legacy.returnError1();
 
 ```
 0.3.0 [2024_09_10]:
-	+: add generate-response-json-error
-	+: add generate-response-json-success
-	^: update error-handler
-	*: rename return-error to error-handler
-	*: update function file names to kebab-case name convention
-	*: reorganize structure
-	*: migrate to use tsup bundler
-	#: fixes during migration to tsup
+   +: add generate-response-json-error
+   +: add generate-response-json-success
+   ^: update error-handler
+   *: rename return-error to error-handler
+   *: update function file names to kebab-case name convention
+   *: reorganize structure
+   *: migrate to use tsup bundler
+   #: fixes during migration to tsup
 
 0.2.4 [2023_12_01]:
    *: update returnError

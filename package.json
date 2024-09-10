@@ -1,6 +1,6 @@
 {
 	"name": "ameliance-scripts",
-	"version": "3.0.0",
+	"version": "0.3.0",
 	"description": "scripts",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
