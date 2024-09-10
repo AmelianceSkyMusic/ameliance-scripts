@@ -1,4 +1,4 @@
-import { isObject } from './isObject';
+import { isObject } from './is-object';
 
 type ArrItem = string;
 type ObjItem = Record<string, string | number>;

@@ -1,6 +1,6 @@
-import { isObject } from './isObject';
+import { isObject } from './is-object';
 
-export function sortArrayLocalCompare<T, K extends string | number>(
+export function removeEmptyValues<T, K extends string | number>(
 	array: T[],
 	key?: K,
 ): T[] {
@@ -22,26 +22,20 @@ export function sortArrayLocalCompare<T, K extends string | number>(
 	let result: T[] = [];
 
 	if (typeof arrayFirstItem === 'string' || typeof arrayFirstItem === 'number') {
-		result = arrayCopy.sort((a, b) => {
-			const aKey = String(a);
-			const bKey = String(b);
-			return aKey.localeCompare(bKey);
-		});
+		result = arrayCopy.filter((value) => String(value).trim() !== '');
 	}
 
 	if (isObject(arrayFirstItem) && key) {
-		result = arrayCopy.sort((a, b) => {
-			const aKey = String((a as Record<K, unknown>)[key]);
-			const bKey = String((b as Record<K, unknown>)[key]);
-			return (aKey).localeCompare(bKey.toString());
+		result = arrayCopy.filter((value) => {
+			const typedValue = String((value as Record<K, unknown>)[key]);
+			return typedValue.trim() !== '';
 		});
 	}
 
 	if (Array.isArray(arrayFirstItem) && key && typeof key === 'number') {
-		result = arrayCopy.sort((a, b) => {
-			const aKey = String((a as unknown[])[key]);
-			const bKey = String((b as unknown[])[key]);
-			return (aKey).localeCompare(bKey);
+		result = arrayCopy.filter((value) => {
+			const typedValue = String((value as unknown[])[key]);
+			return typedValue.trim() !== '';
 		});
 	}
 

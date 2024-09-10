@@ -1,4 +1,4 @@
-import { getRandomNumber } from './getRandomNumber';
+import { getRandomNumber } from './get-random-number';
 
 export function shuffleArray<TYPE>(array: TYPE[]): TYPE[] {
 	const arrayCopy = array.slice();

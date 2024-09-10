@@ -1,4 +1,4 @@
-import { isObject } from './isObject';
+import { isObject } from './is-object';
 
 function getGroupSymbol<T, K extends string | number>(item: T, key?: K, length = 0): string {
 	if (length === 0 && typeof item === 'string') return item;

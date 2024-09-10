@@ -1,4 +1,4 @@
-import { getRandomNumber } from './getRandomNumber';
+import { getRandomNumber } from './get-random-number';
 
 export function getRandomHEXColor(): string {
 	const r = getRandomNumber(0, 255).toString(16);

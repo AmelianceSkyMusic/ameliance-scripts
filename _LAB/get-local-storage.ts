@@ -1,5 +1,5 @@
 import { PACKAGE_NAME } from '../constants/PACKAGE_NAME ';
-import { returnError } from '../scripts/returnError';
+import { returnError } from '../scripts/return-error';
 
 export function getLocalStorage<T>(appName: string, store: string, key: string, initValue?: T) {
 	const setLocalStorageItem = <K, D>(storeObj: Record<string, K>, value: D) => {

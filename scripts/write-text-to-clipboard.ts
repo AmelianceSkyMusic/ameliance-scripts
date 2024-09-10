@@ -1,5 +1,5 @@
 import { PACKAGE_NAME } from '../constants/PACKAGE_NAME ';
-import { returnError } from './returnError';
+import { returnError } from './return-error';
 
 export type WriteTextToClipboardReturn = boolean;
 

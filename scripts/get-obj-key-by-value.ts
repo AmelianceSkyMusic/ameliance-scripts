@@ -1,4 +1,4 @@
-import { returnError } from './returnError';
+import { returnError } from './return-error';
 
 export function getObjKeyByValue<T>(object: Record<string, T>, value: T): string | undefined {
 	try {
