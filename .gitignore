@@ -23,13 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-#amelianceskymusic own modules
-
-*._legacy*
-_legacy*
-
+# temp folders / files
 *._backup*
-_backup*
-
+*._legacy*
 *._temp*
-_temp*
+*._labs*
+
+#history
+.history
+.lh

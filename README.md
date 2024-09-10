@@ -10,16 +10,18 @@ npm i ameliance-scripts
 
 ## Usage
 
-```js
-import a from "ameliance-scripts";
+Import like this
 
-const randomRGBColor = a.getRandomRGBColor();
+```js
+import { getRandomRGBColor } from "ameliance-scripts";
+
+const randomRGBColor = getRandomRGBColor();
 ```
 
 or
 
 ```js
-import { getRandomRGBColor } from "ameliance-scripts";
+import a from "ameliance-scripts";
 
 const randomRGBColor = getRandomRGBColor();
 ```
@@ -28,7 +30,7 @@ const randomRGBColor = getRandomRGBColor();
 
 ```js
 const arr = ["a", "b", "c"];
-a.addId(arr);
+addId(arr);
 // [
 //    { a: 'a', id: 0 },
 //    { b: 'b', id: 0 },
@@ -36,7 +38,7 @@ a.addId(arr);
 // ]
 
 const arr = [{ key: "a" }, { key: "b" }, { key: "c" }];
-a.addId(arr);
+addId(arr);
 // [
 //    { key: 'a', id: 0 },
 //    { key: 'b', id: 0 },
@@ -45,7 +47,7 @@ a.addId(arr);
 
 const arr = [{ key: "a" }, { key: "b" }, { key: "c" }];
 const ids = [2923, 0292, 8347];
-a.addId(arr, ids);
+addId(arr, ids);
 // [
 //    { key: 'a', id: 2923 },
 //    { key: 'b', id: 0292 },
@@ -56,134 +58,134 @@ a.addId(arr, ids);
 ```js
 const someVar = 'class-b'
 const someArr = [null, '', 'icon', '', '', undefined, '']
-<Component {...a.className(['class-a', undefined, someVar, someArr.length > 0 && someArr]);}/>
+<Component {...className(['class-a', undefined, someVar, someArr.length > 0 && someArr]);}/>
 // <Component className='class-a class-b icon'/>
 ```
 
 ```js
-a.clearLocalStorageAndReload();
+clearLocalStorageAndReload();
 ```
 
 ```js
-a.createHTMLElem();
+createHTMLElem();
 ```
 
 ```js
-a.getCommonValues(["1", "2", "3"], ["3", "4"], ["3", "5"]);
+getCommonValues(["1", "2", "3"], ["3", "4"], ["3", "5"]);
 // ['3']
 
-a.getCommonValues([1, 2, 3], [3, 4], [3, 5]);
+getCommonValues([1, 2, 3], [3, 4], [3, 5]);
 // [3]
 
-a.getCommonValues(["1", "2", "3", 1], ["3", "4", 1], [1, "3", "5"]);
-// ['3, 1]
+getCommonValues(["1", "2", "3", 1], ["3", "4", 1], [1, "3", "5"]);
+// ['3', 1]
 ```
 
 ```js
-a.getCurrentDateInMs();
+getCurrentDateInMs();
 // 1675366990061
 ```
 
 ```js
-a.getDifferentValues(["1", "2", "3"], ["3", "4"], ["3", "5"]);
+getDifferentValues(["1", "2", "3"], ["3", "4"], ["3", "5"]);
 // ['1', '2']
 
-a.getDifferentValues([1, 2, 3], [3, 4], [3, 5]);
+getDifferentValues([1, 2, 3], [3, 4], [3, 5]);
 // [1, 2]
 
-a.getDifferentValues(["1", "2", "3", 1, 3], ["3", "4", 1], [1, "3", "5"]);
+getDifferentValues(["1", "2", "3", 1, 3], ["3", "4", 1], [1, "3", "5"]);
 // ['1', '2', 3]
 ```
 
 ```js
 const arr = [
-   { a: 1, b: 2 },
-   { a: 3, b: 4 },
-   { a: 3, b: 2 },
+	{ a: 1, b: 2 },
+	{ a: 3, b: 4 },
+	{ a: 3, b: 2 },
 ];
-a.getElemByKey(arr, a, 3);
+getElemByKey(arr, a, 3);
 // { a: 3, b: 4 }
 ```
 
 ```js
-a.getFormattedDate("2023-06-01");
+getFormattedDate("2023-06-01");
 // June 1, 2023
 
-a.getFormattedDate("2023-06-01", "short");
+getFormattedDate("2023-06-01", "short");
 // 6/1/23
 
-a.getFormattedDate("2023-06-01", "full", "uk-UA");
+getFormattedDate("2023-06-01", "full", "uk-UA");
 // четвер, 1 червня 2023 р.
 
-a.getFormattedDate("2023-06-01", "full", "ja-JP");
+getFormattedDate("2023-06-01", "full", "ja-JP");
 // 2023年6月1日木曜日
 ```
 
 ```js
 const arr = [
-   { a: 1, b: 2 },
-   { a: 3, b: 4 },
-   { a: 3, b: 2 },
+	{ a: 1, b: 2 },
+	{ a: 3, b: 4 },
+	{ a: 3, b: 2 },
 ];
-a.getIndexByKey(arr, a, 3);
+getIndexByKey(arr, a, 3);
 // 2
 ```
 
 ```js
-a.getIndexesOfNonEmptyElements(["1", "", "3"]);
+getIndexesOfNonEmptyElements(["1", "", "3"]);
 // [0, 2]
 ```
 
 ```js
 const code = 403;
-a.getMatch(code, {
-   403: "Forbidden ",
-   500: "Server Error",
-   _: "Unknown error",
+getMatch(code, {
+	403: "Forbidden ",
+	500: "Server Error",
+	_: "Unknown error",
 });
 // Forbidden
 ```
 
 ```js
-a.getObjKeyByValue();
+getObjKeyByValue();
 ```
 
 ```js
-a.getRandomHEXColor();
+getRandomHEXColor();
 // '#FFAA00'
 ```
 
 ```js
-a.getRandomNumber(0, 7);
+getRandomNumber(0, 7);
 // 5
 ```
 
 ```js
-a.getRandomRGBColor();
+getRandomRGBColor();
 // [255, 10, 8]
 ```
 
 ```js
-a.getScrollDirection();
+getScrollDirection();
 // 'UP'
 // 'DOWN'
 ```
 
 ```js
-a.groupBy(["aa", "aq", "ab", "bx", "ba"]);
+groupBy(["aa", "aq", "ab", "bx", "ba"]);
 // [
 //   [a, ['aa', 'aq', 'ab]],
 //   [b, ['bx', ba]]
 // ]
 
-a.groupBy([
-   { key1: "aa", key2: 1 },
-   { key1: "aq", key2: 3 },
-   { key1: "ab", key2: "2" },
-   { key1: "bx", key2: "5" },
-   { key1: "ba", key2: 4 },
+groupBy([
+	{ key1: "aa", key2: 1 },
+	{ key1: "aq", key2: 3 },
+	{ key1: "ab", key2: "2" },
+	{ key1: "bx", key2: "5" },
+	{ key1: "ba", key2: 4 },
 ]),
-   "key1";
+	"key1";
 //[
 //   [a, [
 //      {key1:'aa', key2: 1 },
@@ -198,49 +200,49 @@ a.groupBy([
 ```
 
 ```js
-a.getToday();
+getToday();
 // 2024-12-09
 ```
 
 ```js
-a.hideEmail("ameliaceskymusic@gmail.com");
+hideEmail("ameliaceskymusic@gmail.com");
 // a***************c@gmail.com
 ```
 
 ```js
-a.isClient(); // on client
+isClient(); // on client
 // true
 
-a.isClient(); // on server
+isClient(); // on server
 // false
 ```
 
 ```js
-a.isObject({ a: "a" });
-// true
-```
-
-```js
-a.isObjectEmpty({ a: "a" });
-// false
-```
-
-```js
-a.isObjectHasValue({ a: "world", b: "hello" }, "react");
-// false
-
-a.isObjectHasValue({ a: "world", b: "hello" }, "world");
+isObject({ a: "a" });
 // true
 ```
 
 ```js
-a.isObjectValid("a");
+isObjectEmpty({ a: "a" });
 // false
-a.isObjectValid(null);
+```
+
+```js
+isObjectHasValue({ a: "world", b: "hello" }, "react");
 // false
-a.isObjectValid({});
+
+isObjectHasValue({ a: "world", b: "hello" }, "world");
+// true
+```
+
+```js
+isObjectValid("a");
 // false
-a.isObjectValid({ a: "a" });
+isObjectValid(null);
+// false
+isObjectValid({});
+// false
+isObjectValid({ a: "a" });
 // true
 ```
 
@@ -248,14 +250,14 @@ a.isObjectValid({ a: "a" });
 const someVar = "class-b";
 const someArr = [null, "", "icon", "", "", undefined, ""];
 const someObj = { "active-class-name": false, "another-class": a === b };
-a.join([
-   "class-a",
-   undefined,
-   someVar,
-   someVar,
-   someArr.length > 0 && someArr,
-   someObj,
-   path === curPath && "active",
+join([
+	"class-a",
+	undefined,
+	someVar,
+	someVar,
+	someArr.length > 0 && someArr,
+	someObj,
+	path === curPath && "active",
 ]);
 // 'class-a class-b icon another-class'
 ```
@@ -263,30 +265,30 @@ a.join([
 ```js
 const someVar = "class-b";
 const someArr = [null, "", "icon", "", "", undefined, ""];
-a.joinWith(",", ["class-a", undefined, someVar, someVar, someArr.length > 0 && someArr]);
+joinWith(",", ["class-a", undefined, someVar, someVar, someArr.length > 0 && someArr]);
 // 'class-a, class-b, icon'
 ```
 
 ```js
-a.parseCurrentDateFromMs(1675366990061);
+parseCurrentDateFromMs(1675366990061);
 // Thu Feb 02 2023 21:43:10 GMT+0200
 ```
 
 ```js
-a.removeEmptyValues(["", "", "a", "", "b", "", ""]);
+removeEmptyValues(["", "", "a", "", "b", "", ""]);
 // ['a', 'b']
 
-a.removeEmptyValues(
-   [
-      { key1: "", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "a", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "b", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-   ],
-   "key1",
+removeEmptyValues(
+	[
+		{ key1: "", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "a", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "b", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+	],
+	"key1",
 );
 // [
 //    {key1: 'a', key2: 'someKey'},
@@ -295,39 +297,41 @@ a.removeEmptyValues(
 ```
 
 ```js
-a.returnError(error);
+errorHandler(error);
 
 const APP_NAME = "app-name";
-export function returnError() {
-   a.returnError(string, APP_NAME, 1);
+export function handleAppError(error: unknown, code?: number): ReturnError {
+	return returnError({ error, code, errorTitle: APP_NAME, wrapperCount: 1 });
 }
+
+// '{status: 520, message: "Unknown Error", code?: "UNKNOWN_ERROR" }';
 ```
 
 ```js
-a.setIntervalCounts({ () => console.log('Hello'), 1000, 3 })
+setIntervalCounts({ () => console.log('Hello'), 1000, 3 })
 // Hello // 1st time after delay 1s
 // Hello // 2nd time after delay 2s
 // Hello // 3rd time after delay 3s
 ```
 
 ```js
-a.shuffleArray(["a", "b", "c"]);
+shuffleArray(["a", "b", "c"]);
 // ['b', 'c', 'a']
 ```
 
 ```js
-a.sortArrayLocalCompare(["Яблуко", "ćma", "BBC", "10", "fast"]);
+sortArrayLocalCompare(["Яблуко", "ćma", "BBC", "10", "fast"]);
 // ['10', 'Яблуко', 'BBC', 'ćma', 'fast']
 
-a.sortArrayLocalCompare(
-   [
-      { key1: "Яблуко", key2: "someKey" },
-      { key1: "ćma", key2: "someKey" },
-      { key1: "BBC", key2: "someKey" },
-      { key1: "10", key2: "someKey" },
-      { key1: "fast", key2: "someKey" },
-   ],
-   "key1",
+sortArrayLocalCompare(
+	[
+		{ key1: "Яблуко", key2: "someKey" },
+		{ key1: "ćma", key2: "someKey" },
+		{ key1: "BBC", key2: "someKey" },
+		{ key1: "10", key2: "someKey" },
+		{ key1: "fast", key2: "someKey" },
+	],
+	"key1",
 );
 // [
 //    {key1: '10', key2: 'someKey'},
@@ -339,11 +343,11 @@ a.sortArrayLocalCompare(
 ```
 
 ```js
-a.sortArrayOfObj();
+sortArrayOfObj();
 ```
 
 ```js
-a.splitTextByBr("Some\nfew\nlines");
+splitTextByBr("Some\nfew\nlines");
 // <>
 // 	some
 // 	<br/>
@@ -355,32 +359,32 @@ a.splitTextByBr("Some\nfew\nlines");
 ```
 
 ```js
-a.stringCut("long string", 5);
+stringCut("long string", 5);
 // 'long...'
 
-a.stringCut("long string", 8, "=)");
+stringCut("long string", 8, "=)");
 // 'long str=)'
 ```
 
 ```js
-a.toTimeFormat(60); // 00:60
+toTimeFormat(60); // 00:60
 ```
 
 ```js
-a.trimEndEmptyValues(["", "", "a", "", "b", "", ""]);
+trimEndEmptyValues(["", "", "a", "", "b", "", ""]);
 // ['', '', 'a', '', 'b']
 
-a.trimEndEmptyValues(
-   [
-      { key1: "", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "a", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "b", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-   ],
-   "key1",
+trimEndEmptyValues(
+	[
+		{ key1: "", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "a", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "b", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+	],
+	"key1",
 );
 // [
 //    {key1: '', key2: 'someKey'},
@@ -392,18 +396,18 @@ a.trimEndEmptyValues(
 ```
 
 ```js
-a.trimStartEmptyValues(["", "", "a", "", "b", "", ""]);
+trimStartEmptyValues(["", "", "a", "", "b", "", ""]);
 // ['a', '', 'b', '', '']
 
-a.trimStartEmptyValues(
-   [
-      { key1: "a", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "b", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-      { key1: "", key2: "someKey" },
-   ],
-   "key1",
+trimStartEmptyValues(
+	[
+		{ key1: "a", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "b", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+		{ key1: "", key2: "someKey" },
+	],
+	"key1",
 );
 // [
 //    {key1: 'a', key2: 'someKey'},
@@ -415,30 +419,78 @@ a.trimStartEmptyValues(
 ```
 
 ```js
-const isActiveClass = a.useActiveClass("some-class another-class");
+const isActiveClass = useActiveClass("some-class another-class");
 
 function SomeComponent() {
-   return <Link className={isActiveClass(link.path === path)} />;
+	return <Link className={isActiveClass(link.path === path)} />;
 }
 ```
 
 ```js
-a.writeTextToClipboard("some text string");
+writeTextToClipboard("some text string");
 ```
 
-### \_LAB
+### react
 
 ```js
-a.getLocalStorage(APP_NAME, "user", "displayName", "Ameliance SkyMusic");
+react.splitTextByBr('Hello!\nYour code is awesome!');
+
+Hello!
+<br />
+Your code is awesome!
+```
+
+### next
+
+```js
+return next.api.generateResponseJsonError({
+	status: 401,
+	statusText: "Session is invalid",
+	code: "SESSION_IS_INVALID",
+});
 ```
 
 ```js
-a.setLocalStorage(APP_NAME, "user", "displayName", "Ameliance SkyMusic");
+return next.api.generateResponseJsonSuccess({ userId: 1234567890 });
+```
+
+### lab
+
+```js
+lab.getLocalStorage(APP_NAME, "user", "displayName", "Ameliance SkyMusic");
+```
+
+```js
+lab.setLocalStorage(APP_NAME, "user", "displayName", "Ameliance SkyMusic");
+```
+
+### legacy
+
+```js
+legacy.join();
+```
+
+```js
+legacy.returnError2();
+```
+
+```js
+legacy.returnError1();
 ```
 
 ## History
 
 ```
+0.3.0 [2024_09_10]:
+	+: add generate-response-json-error
+	+: add generate-response-json-success
+	^: update error-handler
+	*: rename return-error to error-handler
+	*: update function file names to kebab-case name convention
+	*: reorganize structure
+	*: migrate to use tsup bundler
+	#: fixes during migration to tsup
+
 0.2.4 [2023_12_01]:
    *: update returnError
    +: add hideEmail
