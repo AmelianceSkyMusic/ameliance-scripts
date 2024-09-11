@@ -1,8 +1,8 @@
-interface SetInterval {
+type SetInterval = {
 	callback: () => void;
 	delay: number;
 	counts: number;
-}
+};
 
 export function setIntervalCounts({
 	callback,

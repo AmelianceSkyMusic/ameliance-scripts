@@ -1,7 +1,7 @@
-export interface ReturnError {
+export type ReturnError = {
 	status: number;
 	message: string;
-}
+};
 
 //* WrapperCount - a parameter that sets the number of wrappers around the function to shift the error array
 export function returnError(

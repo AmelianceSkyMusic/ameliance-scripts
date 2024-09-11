@@ -1,6 +1,6 @@
-interface ClassNameReturn {
+type ClassNameReturn = {
 	className: string;
-}
+};
 
 export function className(...args: unknown[]): ClassNameReturn {
 	return {

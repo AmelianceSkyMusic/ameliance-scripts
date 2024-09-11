@@ -481,6 +481,9 @@ legacy.returnError1();
 ## History
 
 ```
+0.3.1 [2024_09_11]:
+   *: update code style
+
 0.3.0 [2024_09_10]:
    +: add generate-response-json-error
    +: add generate-response-json-success

@@ -1,7 +1,7 @@
 import * as lab from './_lab';
-import * as react from './react';
 import * as legacy from './legacy';
 import * as next from './next';
+import * as react from './react';
 
 export * from './react';
 export * from './add-id';
@@ -46,9 +46,11 @@ export * from './write-text-to-clipboard';
 
 export { lab, legacy, react, next };
 
-export default {
+const a = {
 	lab,
 	legacy,
 	react,
 	next,
 };
+
+export default a;
