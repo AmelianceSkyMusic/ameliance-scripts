@@ -481,6 +481,9 @@ legacy.returnError1();
 ## History
 
 ```
+0.3.2 [2024_09_11]:
+   #: fix publish issues
+
 0.3.1 [2024_09_11]:
    *: update code style
 
