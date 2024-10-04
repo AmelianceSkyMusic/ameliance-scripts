@@ -1,4 +1,7 @@
-type ReturnErrorHandler = {
+import { joinWith } from './join-with';
+import { log } from './log';
+
+export type ReturnErrorHandler = {
 	status: number;
 	message: string;
 	code?: string;
@@ -53,17 +56,22 @@ export function errorHandler({
 			}
 		}
 	}
-
 	if (showConsoleError) {
 		const errorTitle = `${title} >`;
-		const errorSubtitle = code
-			? `${status} | ${code} | ${message}\n`
-			: `${status} | ${message}\n`;
+		const errorSubtitle = `${joinWith(' | ', status, code, message)}`;
 
-		console.error(
+		const subtitleStyle = `
+			background-color: hsla(0, 0%, 0%, 0.5);
+			color: white;
+			border-radius: 4px;
+			padding: 2px 4px;
+			margin-bottom: 4px;
+		`;
+
+		log.error(
 			errorTitle,
-			errorSubtitle,
-			new Error().stack?.split('\n').splice(errorCount, errorDeep).join('\n'),
+			[errorSubtitle, subtitleStyle],
+			[`\n${new Error().stack?.split('\n').splice(errorCount, errorDeep).join('\n')}`, ''],
 		);
 	}
 
