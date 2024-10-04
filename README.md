@@ -12,7 +12,7 @@ npm i ameliance-scripts
 
 Import like this
 
-```js
+```ts
 import { getRandomRGBColor } from "ameliance-scripts";
 
 const randomRGBColor = getRandomRGBColor();
@@ -20,7 +20,7 @@ const randomRGBColor = getRandomRGBColor();
 
 or
 
-```js
+```ts
 import a from "ameliance-scripts";
 
 const randomRGBColor = getRandomRGBColor();
@@ -28,7 +28,7 @@ const randomRGBColor = getRandomRGBColor();
 
 ## Functions list
 
-```js
+```ts
 const arr = ["a", "b", "c"];
 addId(arr);
 // [
@@ -55,22 +55,22 @@ addId(arr, ids);
 // ]
 ```
 
-```js
+```ts
 const someVar = 'class-b'
 const someArr = [null, '', 'icon', '', '', undefined, '']
 <Component {...className(['class-a', undefined, someVar, someArr.length > 0 && someArr]);}/>
 // <Component className='class-a class-b icon'/>
 ```
 
-```js
+```ts
 clearLocalStorageAndReload();
 ```
 
-```js
+```ts
 createHTMLElem();
 ```
 
-```js
+```ts
 getCommonValues(["1", "2", "3"], ["3", "4"], ["3", "5"]);
 // ['3']
 
@@ -81,12 +81,12 @@ getCommonValues(["1", "2", "3", 1], ["3", "4", 1], [1, "3", "5"]);
 // ['3', 1]
 ```
 
-```js
+```ts
 getCurrentDateInMs();
 // 1675366990061
 ```
 
-```js
+```ts
 getDifferentValues(["1", "2", "3"], ["3", "4"], ["3", "5"]);
 // ['1', '2']
 
@@ -97,7 +97,7 @@ getDifferentValues(["1", "2", "3", 1, 3], ["3", "4", 1], [1, "3", "5"]);
 // ['1', '2', 3]
 ```
 
-```js
+```ts
 const arr = [
 	{ a: 1, b: 2 },
 	{ a: 3, b: 4 },
@@ -107,7 +107,7 @@ getElemByKey(arr, a, 3);
 // { a: 3, b: 4 }
 ```
 
-```js
+```ts
 getFormattedDate("2023-06-01");
 // June 1, 2023
 
@@ -121,7 +121,7 @@ getFormattedDate("2023-06-01", "full", "ja-JP");
 // 2023年6月1日木曜日
 ```
 
-```js
+```ts
 const arr = [
 	{ a: 1, b: 2 },
 	{ a: 3, b: 4 },
@@ -131,12 +131,12 @@ getIndexByKey(arr, a, 3);
 // 2
 ```
 
-```js
+```ts
 getIndexesOfNonEmptyElements(["1", "", "3"]);
 // [0, 2]
 ```
 
-```js
+```ts
 const code = 403;
 getMatch(code, {
 	403: "Forbidden ",
@@ -146,32 +146,32 @@ getMatch(code, {
 // Forbidden
 ```
 
-```js
+```ts
 getObjKeyByValue();
 ```
 
-```js
+```ts
 getRandomHEXColor();
 // '#FFAA00'
 ```
 
-```js
+```ts
 getRandomNumber(0, 7);
 // 5
 ```
 
-```js
+```ts
 getRandomRGBColor();
 // [255, 10, 8]
 ```
 
-```js
+```ts
 getScrollDirection();
 // 'UP'
 // 'DOWN'
 ```
 
-```js
+```ts
 groupBy(["aa", "aq", "ab", "bx", "ba"]);
 // [
 //   [a, ['aa', 'aq', 'ab]],
@@ -199,17 +199,17 @@ groupBy([
 //]
 ```
 
-```js
+```ts
 getToday();
 // 2024-12-09
 ```
 
-```js
+```ts
 hideEmail("ameliaceskymusic@gmail.com");
 // a***************c@gmail.com
 ```
 
-```js
+```ts
 isClient(); // on client
 // true
 
@@ -217,17 +217,17 @@ isClient(); // on server
 // false
 ```
 
-```js
+```ts
 isObject({ a: "a" });
 // true
 ```
 
-```js
+```ts
 isObjectEmpty({ a: "a" });
 // false
 ```
 
-```js
+```ts
 isObjectHasValue({ a: "world", b: "hello" }, "react");
 // false
 
@@ -235,7 +235,7 @@ isObjectHasValue({ a: "world", b: "hello" }, "world");
 // true
 ```
 
-```js
+```ts
 isObjectValid("a");
 // false
 isObjectValid(null);
@@ -246,7 +246,7 @@ isObjectValid({ a: "a" });
 // true
 ```
 
-```js
+```ts
 const someVar = "class-b";
 const someArr = [null, "", "icon", "", "", undefined, ""];
 const someObj = { "active-class-name": false, "another-class": a === b };
@@ -262,19 +262,49 @@ join([
 // 'class-a class-b icon another-class'
 ```
 
-```js
+```ts
+const someVar = "class-b";
+const someArr = [null, "", "icon", "", "", undefined, ""];
+const someObj = { "active-class-name": false, "another-class": a === b };
+join([
+	"class-a",
+	undefined,
+	someVar,
+	someVar,
+	someArr.length > 0 && someArr,
+	someObj,
+	path === curPath && "active",
+]);
+// 'class-a class-b icon another-class'
+```
+
+```ts
+log.warn(
+	errorTitle,
+	errorSubtitle,
+	new Error().stack?.split("\n").splice(errorCount, errorDeep).join("\n"),
+);
+
+log.error(
+	errorTitle,
+	[errorSubtitle, "background-color: red;"],
+	[`\n${new Error().stack?.split("\n").splice(errorCount, errorDeep).join("\n")}`, ""],
+);
+```
+
+```ts
 const someVar = "class-b";
 const someArr = [null, "", "icon", "", "", undefined, ""];
 joinWith(",", ["class-a", undefined, someVar, someVar, someArr.length > 0 && someArr]);
 // 'class-a, class-b, icon'
 ```
 
-```js
+```ts
 parseCurrentDateFromMs(1675366990061);
 // Thu Feb 02 2023 21:43:10 GMT+0200
 ```
 
-```js
+```ts
 removeEmptyValues(["", "", "a", "", "b", "", ""]);
 // ['a', 'b']
 
@@ -296,7 +326,7 @@ removeEmptyValues(
 // ]
 ```
 
-```js
+```ts
 errorHandler(error);
 
 const APP_NAME = "app-name";
@@ -307,19 +337,19 @@ export function handleAppError(error: unknown, code?: number): ReturnError {
 // '{status: 520, message: "Unknown Error", code?: "UNKNOWN_ERROR" }';
 ```
 
-```js
+```ts
 setIntervalCounts({ () => console.log('Hello'), 1000, 3 })
 // Hello // 1st time after delay 1s
 // Hello // 2nd time after delay 2s
 // Hello // 3rd time after delay 3s
 ```
 
-```js
+```ts
 shuffleArray(["a", "b", "c"]);
 // ['b', 'c', 'a']
 ```
 
-```js
+```ts
 sortArrayLocalCompare(["Яблуко", "ćma", "BBC", "10", "fast"]);
 // ['10', 'Яблуко', 'BBC', 'ćma', 'fast']
 
@@ -342,11 +372,11 @@ sortArrayLocalCompare(
 // ]
 ```
 
-```js
+```ts
 sortArrayOfObj();
 ```
 
-```js
+```ts
 splitTextByBr("Some\nfew\nlines");
 // <>
 // 	some
@@ -358,7 +388,7 @@ splitTextByBr("Some\nfew\nlines");
 // </>
 ```
 
-```js
+```ts
 stringCut("long string", 5);
 // 'long...'
 
@@ -366,11 +396,11 @@ stringCut("long string", 8, "=)");
 // 'long str=)'
 ```
 
-```js
+```ts
 toTimeFormat(60); // 00:60
 ```
 
-```js
+```ts
 trimEndEmptyValues(["", "", "a", "", "b", "", ""]);
 // ['', '', 'a', '', 'b']
 
@@ -395,7 +425,7 @@ trimEndEmptyValues(
 // ]
 ```
 
-```js
+```ts
 trimStartEmptyValues(["", "", "a", "", "b", "", ""]);
 // ['a', '', 'b', '', '']
 
@@ -418,7 +448,7 @@ trimStartEmptyValues(
 // ]
 ```
 
-```js
+```ts
 const isActiveClass = useActiveClass("some-class another-class");
 
 function SomeComponent() {
@@ -426,13 +456,13 @@ function SomeComponent() {
 }
 ```
 
-```js
+```ts
 writeTextToClipboard("some text string");
 ```
 
 ### react
 
-```js
+```ts
 react.splitTextByBr('Hello!\nYour code is awesome!');
 
 Hello!
@@ -442,7 +472,7 @@ Your code is awesome!
 
 ### next
 
-```js
+```ts
 return next.api.generateResponseJsonError({
 	status: 401,
 	statusText: "Session is invalid",
@@ -450,37 +480,41 @@ return next.api.generateResponseJsonError({
 });
 ```
 
-```js
+```ts
 return next.api.generateResponseJsonSuccess({ userId: 1234567890 });
 ```
 
 ### lab
 
-```js
+```ts
 lab.getLocalStorage(APP_NAME, "user", "displayName", "Ameliance SkyMusic");
 ```
 
-```js
+```ts
 lab.setLocalStorage(APP_NAME, "user", "displayName", "Ameliance SkyMusic");
 ```
 
 ### legacy
 
-```js
+```ts
 legacy.join();
 ```
 
-```js
+```ts
 legacy.returnError2();
 ```
 
-```js
+```ts
 legacy.returnError1();
 ```
 
 ## History
 
 ```
+0.3.3 [2024_10_04]:
+   +: add log
+   #: add styles error-handler console.log
+
 0.3.2 [2024_09_11]:
    #: fix publish issues
 
