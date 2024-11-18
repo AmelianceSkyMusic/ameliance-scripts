@@ -1,20 +1,53 @@
-export function sortArrayOfObj<TYPE>(
-	array: TYPE[],
-	key: keyof TYPE,
-	type: 'num' | 'str' = 'num',
-): TYPE[] {
-	const arrayCopy = array.slice();
-	if (key) {
-		arrayCopy.sort((a: TYPE, b: TYPE): number => {
-			if (type === 'num') {
-				if (+a[key] < +b[key]) return -1;
-				if (+a[key] > +b[key]) return 1;
-			} else {
-				if (a[key] < b[key]) return -1;
-				if (a[key] > b[key]) return 1;
-			}
-			return 0;
-		});
+import { detectValueType } from './detect-value-type';
+import type { ValueType } from './get-value-type';
+
+type ValidValue = string | number | boolean | Date | null | undefined;
+
+const compareValues = (a: ValidValue, b: ValidValue, valueType: ValueType): number => {
+	switch (valueType) {
+		case 'date':
+			return new Date(String(a)).getTime() - new Date(String(b)).getTime();
+		case 'number':
+			return Number(a) - Number(b);
+		case 'boolean':
+			return Number(Boolean(a)) - Number(Boolean(b));
+		case 'string':
+		default:
+			return String(a).localeCompare(String(b));
 	}
+};
+
+export function sortArrayOfObj<T extends Record<keyof T, ValidValue>>(
+	array: T[],
+	key: keyof T,
+	type?: ValueType,
+	undefinedPosition: 'start' | 'end' = 'end',
+): T[] {
+	const arrayCopy = array.slice();
+
+	if (!key || array.length === 0) return arrayCopy;
+
+	//* Find first non empty value to define type
+	const firstValidValue = array.find((item) => {
+		const value = item[key];
+		return value !== undefined && value !== null && value !== '';
+	})?.[key];
+
+	const valueType = type || detectValueType(firstValidValue);
+
+	arrayCopy.sort((a: T, b: T): number => {
+		const aValue = a[key];
+		const bValue = b[key];
+
+		const isAEmpty = aValue === undefined || aValue === null || aValue === '';
+		const isBEmpty = bValue === undefined || bValue === null || bValue === '';
+
+		if (isAEmpty && isBEmpty) return 0;
+		if (isAEmpty) return undefinedPosition === 'start' ? -1 : 1;
+		if (isBEmpty) return undefinedPosition === 'start' ? 1 : -1;
+
+		return compareValues(aValue, bValue, valueType);
+	});
+
 	return arrayCopy;
 }

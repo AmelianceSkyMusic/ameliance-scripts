@@ -71,6 +71,42 @@ createHTMLElem();
 ```
 
 ```ts
+detectValueType("some string");
+// 'string'
+
+detectValueType(123);
+// 'number'
+
+detectValueType(true);
+// 'boolean'
+
+detectValueType(new Date());
+// 'date'
+```
+
+```ts
+errorHandler(error);
+
+export function handleAppError(error: unknown, code?: number): ReturnError {
+	return errorHandler({
+		error,
+		code,
+		errorTitle: process.env.APP_NAME,
+		wrapperCount: 1,
+	});
+}
+
+// '{status: 520, message: "Unknown Error", code?: "UNKNOWN_ERROR" }';
+```
+
+```ts
+const originalObject = { a: 1, b: 2, c: 3 };
+const updatedObject = { a: 2, b: 2, d: 5 };
+getChangedProperties(obj1, obj2);
+// { a:2, c: 3, d: 5 }
+```
+
+```ts
 getCommonValues(["1", "2", "3"], ["3", "4"], ["3", "5"]);
 // ['3']
 
@@ -137,6 +173,24 @@ getIndexesOfNonEmptyElements(["1", "", "3"]);
 ```
 
 ```ts
+const code = 999;
+getMatchSoft(code, {
+	403: "Forbidden ",
+	500: "Server Error",
+	_: "Unknown error",
+});
+// "Unknown error"
+
+const code = 999;
+getMatchSoft(code, {
+	403: "Forbidden ",
+	500: "Server Error",
+	_: "Unknown error",
+});
+// null
+```
+
+```ts
 const code = 403;
 getMatch(code, {
 	403: "Forbidden ",
@@ -172,6 +226,19 @@ getScrollDirection();
 ```
 
 ```ts
+getToday();
+// 2024-12-09
+```
+
+```ts
+getValueType("some string");
+// 'string'
+
+getValueType(123);
+// 'number'
+```
+
+```ts
 groupBy(["aa", "aq", "ab", "bx", "ba"]);
 // [
 //   [a, ['aa', 'aq', 'ab]],
@@ -200,13 +267,16 @@ groupBy([
 ```
 
 ```ts
-getToday();
-// 2024-12-09
+hideEmail("ameliaceskymusic@gmail.com");
+// a***************c@gmail.com
 ```
 
 ```ts
-hideEmail("ameliaceskymusic@gmail.com");
-// a***************c@gmail.com
+isArraysEqual([1, 2, 3], [1, 2, 3]);
+// true
+
+isArraysEqual([1, 2, 3], [1, 2]);
+// false
 ```
 
 ```ts
@@ -215,11 +285,6 @@ isClient(); // on client
 
 isClient(); // on server
 // false
-```
-
-```ts
-isObject({ a: "a" });
-// true
 ```
 
 ```ts
@@ -247,6 +312,59 @@ isObjectValid({ a: "a" });
 ```
 
 ```ts
+isObject({ a: "a" });
+// true
+```
+
+```ts
+console.log(isValidUrl("https://example.com"));
+// true - a valid URL with a protocol
+
+console.log(isValidUrl("http://example.com"));
+// true - a valid URL with another protocol
+
+console.log(isValidUrl("ftp://example.com"));
+// true - a valid URL with the FTP protocol
+
+console.log(isValidUrl("www.example.com"));
+// false - missing protocol
+
+console.log(isValidUrl("example.com"));
+// false - missing protocol
+
+console.log(isValidUrl(""));
+// false - empty string
+
+console.log(isValidUrl("random_string"));
+// false - not a valid URL format
+
+console.log(isValidUrl("https://"));
+// false - protocol exists, but domain is missing
+
+console.log(isValidUrl("https://example.com/path?query=123"));
+// true - valid URL with a path and query parameters
+
+console.log(isValidUrl("https://example.com:8080"));
+// true - valid URL with a port
+
+console.log(isValidUrl("https://invalid_domain"));
+// true - technically valid format, but the domain looks suspicious
+```
+
+```ts
+joinWith(" ", ["a", "b", "c"]);
+// 'a b c'
+
+joinWith(", ", ["a", "b", "c", null, undefined]);
+// 'a, b, c'
+
+const someVar = "class-b";
+const someArr = [null, "", "icon", "", "", undefined, ""];
+joinWith(",", ["class-a", undefined, someVar, someVar, someArr.length > 0 && someArr]);
+// 'class-a, class-b, icon'
+```
+
+```ts
 const someVar = "class-b";
 const someArr = [null, "", "icon", "", "", undefined, ""];
 const someObj = { "active-class-name": false, "another-class": a === b };
@@ -276,6 +394,11 @@ join([
 	path === curPath && "active",
 ]);
 // 'class-a class-b icon another-class'
+```
+
+```ts
+kebabToCamelCase("some-class-name");
+// someClassName
 ```
 
 ```ts
@@ -290,13 +413,6 @@ log.error(
 	[errorSubtitle, "background-color: red;"],
 	[`\n${new Error().stack?.split("\n").splice(errorCount, errorDeep).join("\n")}`, ""],
 );
-```
-
-```ts
-const someVar = "class-b";
-const someArr = [null, "", "icon", "", "", undefined, ""];
-joinWith(",", ["class-a", undefined, someVar, someVar, someArr.length > 0 && someArr]);
-// 'class-a, class-b, icon'
 ```
 
 ```ts
@@ -324,17 +440,6 @@ removeEmptyValues(
 //    {key1: 'a', key2: 'someKey'},
 //    {key1: 'b', key2: 'someKey'}
 // ]
-```
-
-```ts
-errorHandler(error);
-
-const APP_NAME = "app-name";
-export function handleAppError(error: unknown, code?: number): ReturnError {
-	return returnError({ error, code, errorTitle: APP_NAME, wrapperCount: 1 });
-}
-
-// '{status: 520, message: "Unknown Error", code?: "UNKNOWN_ERROR" }';
 ```
 
 ```ts
@@ -374,18 +479,6 @@ sortArrayLocalCompare(
 
 ```ts
 sortArrayOfObj();
-```
-
-```ts
-splitTextByBr("Some\nfew\nlines");
-// <>
-// 	some
-// 	<br/>
-// 	few
-// 	<br/>
-// 	lines
-// 	<br/>
-// </>
 ```
 
 ```ts
@@ -468,6 +561,16 @@ react.splitTextByBr('Hello!\nYour code is awesome!');
 Hello!
 <br />
 Your code is awesome!
+
+react.splitTextByBr("Some\nfew\nlines");
+// <>
+// 	some
+// 	<br/>
+// 	few
+// 	<br/>
+// 	lines
+// 	<br/>
+// </>
 ```
 
 ### next
@@ -511,6 +614,19 @@ legacy.returnError1();
 ## History
 
 ```
+0.3.4 [2024_11_18]:
+   +: add detectValueType
+   +: add getChangedProperties
+   +: add getCurrentTimeWithOffset
+   +: add getMatchSoft
+   +: add getValueType
+   +: add isArraysEqual
+   +: add іsValidUrl
+   +: add kebabToCamelCase
+   +: add trimStartEmptyValues
+   *: update getMatch
+   *: update sortArrayOfObj
+
 0.3.3 [2024_10_04]:
    +: add log
    #: add styles error-handler console.log
