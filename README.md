@@ -553,40 +553,6 @@ function SomeComponent() {
 writeTextToClipboard("some text string");
 ```
 
-### react
-
-```ts
-react.splitTextByBr('Hello!\nYour code is awesome!');
-
-Hello!
-<br />
-Your code is awesome!
-
-react.splitTextByBr("Some\nfew\nlines");
-// <>
-// 	some
-// 	<br/>
-// 	few
-// 	<br/>
-// 	lines
-// 	<br/>
-// </>
-```
-
-### next
-
-```ts
-return next.api.generateResponseJsonError({
-	status: 401,
-	statusText: "Session is invalid",
-	code: "SESSION_IS_INVALID",
-});
-```
-
-```ts
-return next.api.generateResponseJsonSuccess({ userId: 1234567890 });
-```
-
 ### lab
 
 ```ts
@@ -614,6 +580,10 @@ legacy.returnError1();
 ## History
 
 ```
+0.4.0 [2024_11_18]:
+	^: move react scripts to library to https://www.npmjs.com/package/ameliance-react-scripts
+   *: rename get-random-hexcolor to get-random-hex-color
+
 0.3.4 [2024_11_18]:
    +: add detectValueType
    +: add getChangedProperties

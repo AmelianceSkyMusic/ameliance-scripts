@@ -1,7 +1,5 @@
 import * as lab from './_lab';
 import * as legacy from './legacy';
-import * as next from './next';
-import * as react from './react';
 
 export * from './add-id';
 export * from './class-name';
@@ -21,7 +19,7 @@ export * from './get-indexes-of-non-empty-elements';
 export * from './get-match-soft';
 export * from './get-match';
 export * from './get-obj-key-by-value';
-export * from './get-random-hexcolor';
+export * from './get-random-hex-color';
 export * from './get-random-number';
 export * from './get-random-rgb-color';
 export * from './get-scroll-direction';
@@ -53,13 +51,11 @@ export * from './trim-start-empty-values';
 export * from './use-active-class';
 export * from './write-text-to-clipboard';
 
-export { lab, legacy, next, react };
+export { lab, legacy };
 
 const a = {
 	lab,
 	legacy,
-	react,
-	next,
 };
 
 export default a;
