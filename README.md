@@ -572,7 +572,7 @@ legacy.returnError1();
 ## History
 
 ```
-0.4.103 [2024_11_21]:
+0.4.104 [2024_11_21]:
 	^: move useActiveClass script to library to https://www.npmjs.com/package/ameliance-react-scripts
 
 0.4.0 [2024_11_18]:

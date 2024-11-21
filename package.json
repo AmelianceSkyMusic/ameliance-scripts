@@ -1,6 +1,6 @@
 {
 	"name": "ameliance-scripts",
-	"version": "0.4.103",
+	"version": "0.4.104",
 	"description": "ameliance scripts",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
@@ -17,6 +17,7 @@
 	],
 	"scripts": {
 		"build": "tsup",
+		"publish": "npm run build && npm publish",
 		"test": "jest",
 		"local-publish": "npm link && npm link ameliance-scripts",
 		"lint": "next lint",
