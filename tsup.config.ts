@@ -7,7 +7,6 @@ export default defineConfig({
 	splitting: false,
 	sourcemap: true,
 	clean: true,
-	external: ['react'],
 	minify: true,
 	target: 'esnext',
 	outDir: 'dist',

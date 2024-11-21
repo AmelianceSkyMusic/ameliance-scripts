@@ -542,14 +542,6 @@ trimStartEmptyValues(
 ```
 
 ```ts
-const isActiveClass = useActiveClass("some-class another-class");
-
-function SomeComponent() {
-	return <Link className={isActiveClass(link.path === path)} />;
-}
-```
-
-```ts
 writeTextToClipboard("some text string");
 ```
 
@@ -580,6 +572,9 @@ legacy.returnError1();
 ## History
 
 ```
+0.4.001 [2024_11_21]:
+	^: move useActiveClass script to library to https://www.npmjs.com/package/ameliance-react-scripts
+
 0.4.0 [2024_11_18]:
 	^: move react scripts to library to https://www.npmjs.com/package/ameliance-react-scripts
    *: rename get-random-hexcolor to get-random-hex-color

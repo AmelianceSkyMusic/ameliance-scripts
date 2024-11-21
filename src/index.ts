@@ -48,7 +48,6 @@ export * from './string-cut';
 export * from './to-time-format';
 export * from './trim-end-empty-values';
 export * from './trim-start-empty-values';
-export * from './use-active-class';
 export * from './write-text-to-clipboard';
 
 export { lab, legacy };
