@@ -2,16 +2,16 @@ import { joinWith } from './join-with';
 import { log } from './log';
 
 export type ReturnErrorHandler = {
-	status: number;
-	message: string;
+	status?: number;
 	code?: string;
+	message: string;
 };
 
 export type ErrorHandler = {
 	error: unknown;
 	status?: number;
-	message?: string;
 	code?: string;
+	message?: string;
 	title?: string;
 	errorDepth?: number;
 	showConsoleError?: boolean;
@@ -20,9 +20,9 @@ export type ErrorHandler = {
 
 export function errorHandler({
 	error,
-	status = -1,
-	message = 'Sorry, something went wrong ¯\\_(ツ)_/¯!',
+	status,
 	code,
+	message = 'Sorry, something went wrong ¯\\_(ツ)_/¯!',
 	title = 'AMELIANCE SCRIPTS',
 	errorDepth = Infinity,
 	showConsoleError = true,
@@ -31,10 +31,7 @@ export function errorHandler({
 	const errorCount = 2 + wrapperCount;
 	const errorDeep = wrapperCount < 0 ? 0 : errorDepth;
 
-	const errorInfo: ReturnErrorHandler = {
-		status,
-		message,
-	};
+	const errorInfo: ReturnErrorHandler = { status, code, message };
 
 	if (error) {
 		if (error instanceof Error) {
@@ -56,9 +53,10 @@ export function errorHandler({
 			}
 		}
 	}
+
 	if (showConsoleError) {
-		const errorTitle = `${title} >`;
-		const errorSubtitle = `${joinWith(' | ', status, code, message)}`;
+		const errorTitle = ` ${title} ERROR: \n`;
+		const errorSubtitle = `${joinWith(' | ', errorInfo.status, errorInfo.code, errorInfo.message)}`;
 
 		const subtitleStyle = `
 			background-color: hsla(0, 0%, 0%, 0.5);
