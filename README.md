@@ -572,6 +572,9 @@ legacy.returnError1();
 ## History
 
 ```
+0.4.107 [2025-03-27]:
+	*: update sortArrayOfObj
+
 0.4.106 [2024_12_10]:
 	#: fix errorHandler message log
 
