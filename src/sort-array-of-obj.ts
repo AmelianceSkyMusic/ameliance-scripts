@@ -1,9 +1,7 @@
 import { detectValueType } from './detect-value-type';
 import type { ValueType } from './get-value-type';
 
-type ValidValue = string | number | boolean | Date | null | undefined;
-
-const compareValues = (a: ValidValue, b: ValidValue, valueType: ValueType): number => {
+const compareValues = <T>(a: T, b: T, valueType: ValueType): number => {
 	switch (valueType) {
 		case 'date':
 			return new Date(String(a)).getTime() - new Date(String(b)).getTime();
@@ -17,9 +15,9 @@ const compareValues = (a: ValidValue, b: ValidValue, valueType: ValueType): numb
 	}
 };
 
-export function sortArrayOfObj<T extends Record<keyof T, ValidValue>>(
+export function sortArrayOfObj<T, K extends keyof T>(
 	array: T[],
-	key: keyof T,
+	key: K,
 	type?: ValueType,
 	undefinedPosition: 'start' | 'end' = 'end',
 ): T[] {
