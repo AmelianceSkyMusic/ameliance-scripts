@@ -7,6 +7,7 @@ export * from './clear-local-storage-and-reload';
 export * from './create-html-elem';
 export * from './detect-value-type';
 export * from './error-handler';
+export * from './escape-html';
 export * from './get-changed-properties';
 export * from './get-common-values';
 export * from './get-current-date-in-ms';
