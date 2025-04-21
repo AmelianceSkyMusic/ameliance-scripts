@@ -85,6 +85,12 @@ detectValueType(new Date());
 ```
 
 ```ts
+const unsafeStringWithInjection = 'Hello <script>alert("XSS")</script>!';
+escapeHtml(unsafeStringWithInjection);
+//"Hello &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;!"
+```
+
+```ts
 errorHandler(error);
 
 export function handleAppError(error: unknown, code?: number): ReturnError {
@@ -269,6 +275,22 @@ groupBy([
 ```ts
 hideEmail("ameliaceskymusic@gmail.com");
 // a***************c@gmail.com
+```
+
+```ts
+const en = {
+	helloMessage: "Hello {{user.name}}, your age is {{user.age}}. Theme: {{theme}}.",
+};
+
+interpolate(en.helloMessage, {
+	user: {
+		title: 'John <script>alert("XSS")</script>',
+		age: 30,
+	},
+	theme: "dark",
+});
+
+//"Hello John &lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;, your age is 30. Theme: dark.
 ```
 
 ```ts
@@ -572,17 +594,21 @@ legacy.returnError1();
 ## History
 
 ```
+0.4.108 [2025-04-21]
+   +: escapeHtml
+   +: interpolate
+
 0.4.107 [2025-03-27]:
-	*: update sortArrayOfObj
+   *: update sortArrayOfObj
 
 0.4.106 [2024_12_10]:
-	#: fix errorHandler message log
+   #: fix errorHandler message log
 
 0.4.105 [2024_11_21]:
-	^: move useActiveClass script to library to https://www.npmjs.com/package/ameliance-react-scripts
+   ^: move useActiveClass script to library to https://www.npmjs.com/package/ameliance-react-scripts
 
 0.4.0 [2024_11_18]:
-	^: move react scripts to library to https://www.npmjs.com/package/ameliance-react-scripts
+   ^: move react scripts to library to https://www.npmjs.com/package/ameliance-react-scripts
    *: rename get-random-hexcolor to get-random-hex-color
 
 0.3.4 [2024_11_18]:
