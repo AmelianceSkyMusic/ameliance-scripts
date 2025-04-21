@@ -28,6 +28,7 @@ export * from './get-today';
 export * from './get-value-type';
 export * from './group-by';
 export * from './hide-email';
+export * from './interpolate';
 export * from './is-arrays-equal';
 export * from './is-client';
 export * from './is-object-empty';
